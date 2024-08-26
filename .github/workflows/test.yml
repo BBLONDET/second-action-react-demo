@@ -1,6 +1,6 @@
 name: Test Project
 on: push
-  test: 
+  jobs: 
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
