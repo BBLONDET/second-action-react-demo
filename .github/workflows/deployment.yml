@@ -1,5 +1,5 @@
 name: Deploy Project #Workflow name
-on: push #when to run
+on: [push, workflow_dispatch] #what action to run the worflow [] for multiple
 jobs: 
   test: #user set name of job
     runs-on: ubuntu-latest #runner used for this job
@@ -15,7 +15,7 @@ jobs:
       - name: run tests
         run: npm test
   deploy:
-    needs: test
+    needs: test #adding this line makes this job run sequentially. can also be in [test,test1] to require multiple jobs to be complete
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
